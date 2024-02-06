@@ -60,7 +60,7 @@ public class HashTagTokenizer {
 		for ( i = 1; i <= N; i++){			
 				String hashtagSub = hashtag.substring(0, i);	
 				if(existInDictionary(hashtagSub, dictionary) == true){
-					System.out.printf("%s ",hashtagSub );
+					System.out.println(hashtagSub);
 				    break;
 				}
 		}
