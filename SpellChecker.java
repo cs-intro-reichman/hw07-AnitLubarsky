@@ -48,19 +48,28 @@ public class SpellChecker {
 	}
 
 	public static String spellChecker(String word, int threshold, String[] dictionary) {
+		int character1 = -1;
+		int character2 = -1;
+
 		for(int i = 0; i <  dictionary.length; i++){
-			if(word.length() == dictionary[i].length()){
-				if(levenshtein(word, dictionary[i]) == threshold){
-					return dictionary[i];
-				}
-			} 
-			// else {
-			// 	if (levenshtein(word, dictionary[i]) <= threshold){
-			// 		return dictionary[i];
-			// 	}
-			// }
-			 
+			if (levenshtein(word, dictionary[i]) <= (threshold)){
+				if(word.length() == dictionary[i].length()){
+					character1 = i;
+					System.out.println("!!!!!");
+
+				} else if(word.length() > dictionary[i].length()) {	
+					System.out.println("****");
+					character2 = i;
+				}					
+			}
+			
 		}
+		if(character1 >= 0){
+				return dictionary[character1];
+			}
+			if(character2 >= 0){
+				return dictionary[character2];
+			}
 		return word;
 	}
 }
